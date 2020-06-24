@@ -4,6 +4,16 @@ const token = process.env.token;
 
 client.on('ready', () => {
   console.log('로그 준비 완료');
+  client.user.setPresence({ game: { name: '/스페이스봇 도움'}, status: 'online' })
+});
+
+client.on("guildMemberAdd", (member) => {
+  const guild = member.guild;
+  const newUser = member.user;
+
+  welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
+
+  member.addRole(guild.roles.find(role => role.name == "양성자와 전자가 합쳐 만들어진 것들"));
 });
 
 client.on('message', message => {
@@ -12,8 +22,24 @@ client.on('message', message => {
   }
 
   if (message.content === '/스페이스봇 도움') {
-    message.channel.send('/스페이스봇 소개 - 스페이스봇을 소개해줍니다');
+    message.channel.send('/스페이스봇 소개 - 스페이스봇을 소개해줍니다')
+    message.channel.send('/스페이스봇 초대링크 - 스페이스봇을 초대하는 링크를 제공합니다')
+  }
+
+  if (message.content === '/스페이스봇 초대링크') {
+    message.channel.send('초대링크: https://bit.ly/2Vd8dUS')
   }
 });
+
+function changeCommandStringLength(str, limitLen = 8) {
+  let tmp = str;
+  limitLen -= tmp.length;
+
+  for(let i=0;i<limitLen;i++) {
+      tmp += ' ';
+  }
+
+  return tmp;
+}
 
 client.login('NzI0OTUwMzk4ODg4MTgxODQx.XvHtcA.sCGoSklyar4hGHv5R6O36Dh192Y');
