@@ -22,24 +22,30 @@ client.on('message', message => {
   }
 
   if (message.content === '/스페이스봇 도움') {
-    message.channel.send('/스페이스봇 소개 - 스페이스봇을 소개해줍니다')
-    message.channel.send('/스페이스봇 초대링크 - 스페이스봇을 초대하는 링크를 제공합니다')
+    message.channel.send('```/스페이스봇 소개 - 스페이스봇을 소개해줍니다```')
+    message.channel.send('```/스페이스봇 초대링크 - 스페이스봇을 초대하는 링크를 제공합니다```')
+    message.channel.send('```/스페이스봇 맨션 - 이 메세지를 보낸 사람을 맨션합니다```')
+    message.channel.send('```/스페이스봇 미안해 - 미안해 ㅠㅠ```')
   }
 
   if (message.content === '/스페이스봇 초대링크') {
     message.channel.send('초대링크: https://bit.ly/2Vd8dUS')
   }
-});
 
-function changeCommandStringLength(str, limitLen = 8) {
-  let tmp = str;
-  limitLen -= tmp.length;
-
-  for(let i=0;i<limitLen;i++) {
-      tmp += ' ';
+  if (message.content === '/스페이스봇 미안해') {
+    message.channel.send('내가 미안해 ㅠㅠㅠㅠ')
   }
 
-  return tmp;
-}
+  if (message.content === '/스페이스봇 맨션') {
+    message.reply('당신이군요!')
+  }
+
+  if (message.content === '/스페이스봇') {
+    message.channel.send('```/스페이스봇 소개 - 스페이스봇을 소개해줍니다```')
+    message.channel.send('```/스페이스봇 초대링크 - 스페이스봇을 초대하는 링크를 제공합니다```')
+    message.channel.send('```/스페이스봇 맨션 - 이 메세지를 보낸 사람을 맨션합니다```')
+    message.channel.send('```/스페이스봇 미안해 - 미안해 ㅠㅠ```')
+  }
+});
 
 client.login(token);
