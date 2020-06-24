@@ -13,7 +13,7 @@ client.on("guildMemberAdd", (member) => {
 
   welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
 
-  member.addRole(guild.roles.find(role => role.name == "양성자와 전자가 합쳐 만들어진 것들"));
+  member.addRole(guild.roles.find(role => role.name == "4×1080m³, 1053kg, 2.72548K 집합체"));
 });
 
 client.on('message', message => {
@@ -42,4 +42,4 @@ function changeCommandStringLength(str, limitLen = 8) {
   return tmp;
 }
 
-client.login('NzI0OTUwMzk4ODg4MTgxODQx.XvHtcA.sCGoSklyar4hGHv5R6O36Dh192Y');
+client.login(token);
